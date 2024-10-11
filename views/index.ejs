@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora Posts</title>
+    <link href="/tailwind.css" rel="stylesheet"> <!-- Link to Tailwind CSS -->
+</head>
+<body class="bg-gray-100 p-6">  
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-10">Quora Posts</h1>
+
+        <!-- Create New Post Button -->
+        <div class="text-center mb-10">
+            <button onclick="window.location.href='http://localhost:3000/posts/new'" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                Create New Post
+            </button>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% for (post of posts) { %> 
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800">@<%= post.username %></h3>
+                    <p class="text-gray-700 mt-2">Content: <%= post.content %></p>
+                </div>
+                <div class="p-6 bg-gray-50 flex justify-between items-center">
+                    <!-- See in Detail Button -->
+                    <a href="http://localhost:3000/posts/<%= post.id %>" class="text-blue-500 hover:underline">See in detail</a>
+
+                    <!-- Edit Button -->
+                    <a href="http://localhost:3000/posts/<%= post.id %>/edit" class="text-green-500 hover:underline">Edit</a>
+
+                    <!-- Delete Form -->
+                    <form method="POST" action="/posts/<%= post.id %>?_method=DELETE" class="inline-block">
+                        <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+    </div>
+</body>
+</html>

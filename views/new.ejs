@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <link href="/tailwind.css" rel="stylesheet"> <!-- Link to Tailwind CSS -->
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">  
+    <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Create New Post</h1>
+
+        <!-- Form -->
+        <form method="post" action="/posts" class="space-y-6">
+            <!-- Username Input -->
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input 
+                    type="text" 
+                    name="username" 
+                    placeholder="Enter your username"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    required
+                >
+            </div>
+
+            <!-- Content Textarea -->
+            <div>
+                <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+                <textarea 
+                    name="content" 
+                    placeholder="Enter the content of your post"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    rows="4"
+                    required
+                ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button 
+                    type="submit" 
+                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                >
+                    Submit Post
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
